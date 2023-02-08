@@ -1,0 +1,106 @@
+.inactive {
+    display: none;
+}
+
+.arrow {
+    text-align: center;
+    margin: auto;
+    padding-top: 5px;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 50px;
+}
+
+.arrow:hover {
+    background-color: aqua;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 15px 0px 15px 0px;
+}
+
+.characters {
+    display: flex;
+    width: 100%;
+}
+
+.character-box {
+    margin: auto;
+}
+
+.character {
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 80px;
+}
+
+.active {
+    background-color: yellow;
+}
+
+.character-box .name {
+    margin-top: 5px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.character-box .character:hover {
+    background-color: aqua;
+}
+
+.character-box .active:hover {
+    background-color: yellow;
+}
+
+.character:hover ~ .name {
+    visibility: visible;
+    opacity: 1;
+}
+
+.maps {
+    display: flex;
+    max-width: 800px;
+    flex-flow: wrap;
+}
+
+.map-box {
+    margin: auto;
+}
+
+.map {
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 100px;
+}
+
+.map-box .name {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.map:hover ~ .name {
+    visibility: visible;
+    opacity: 1;
+}
+
+.maps-box .active-map {
+    opacity: 0.5;
+    align-items: center ;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
