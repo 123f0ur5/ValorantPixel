@@ -23,18 +23,33 @@ $(".character").on("click", function(){
 
 //Select map
 $(".map").on("click", function(){
+    console.log("entrei")
     if ($(".map").hasClass("active-map")){
         $(".map").removeClass("active-map");
     }
     map = $(this).children("img").attr("alt");
-    console.log(map);
     $(this).addClass("active-map");
 
     maps.fadeOut("slow");
     //sides.delay("1000").fadeIn("slow");
-    active_map.prepend('<img src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
+    active_map.append('<img id="current" src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
     active_map.delay("1000").fadeIn("1000")
     count += 1;
+});
+
+$(".active-map").on("click", function(e){
+    console.log(e.pageX-12.5, e.pageY-12.5)
+});
+
+$("#test").on("mouseenter mouseleave", function(e){
+    if(e.type == "mouseenter"){
+        console.log("entrei")
+        $(this).animate({width: '+=5px', height: '+=5px'})
+        $(this).delay(300).animate({width: '-=5px', height: '-=5px'})
+    } else if (e.type == "mouseleave"){
+        console.log("sai")
+        $(this).stop("",true).fadeIn(0);
+    }
 });
 
 //Select side

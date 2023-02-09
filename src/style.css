@@ -133,6 +133,19 @@
     color: white;
 } */
 
+.current {
+    position: relative;
+}
+
 .active-map .map {
     margin: auto;
 }
+
+#test {
+    position: absolute;
+    border-radius: 50%;
+    background-color: green;
+    top: 168.5px;
+    left: 493.5px;
+}
+
