@@ -42,7 +42,7 @@
     background-color: yellow;
 }
 
-.character-box .name {
+.character-box .character-name {
     margin-top: 5px;
     text-align: center;
     visibility: hidden;
@@ -58,7 +58,7 @@
     background-color: yellow;
 }
 
-.character:hover ~ .name {
+.character:hover ~ .character-name {
     visibility: visible;
     opacity: 1;
 }
@@ -80,7 +80,7 @@
     height: 100px;
 }
 
-.map-box .name {
+.map-box .map-name {
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: center;
@@ -89,18 +89,50 @@
     transition: visibility 0s, opacity 0.5s linear;
 }
 
-.map:hover ~ .name {
+.map:hover ~ .map-name {
     visibility: visible;
     opacity: 1;
 }
 
 .maps-box .active-map {
-    opacity: 0.5;
-    align-items: center ;
+    opacity: 0.6;
 }
 
-.container {
-    position: relative;
+/*
+.sides-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-box {
+    margin: auto;
+    width: 60%;
+    height: 25%;
     text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.side-box .red:hover {
+    background-color: rgb(213, 26, 26);
+    border-radius: 50%;
     color: white;
-  }
+}
+
+.side-box .blue:hover {
+    background-color: rgb(0, 47, 255);
+    border-radius: 50%;
+    color: white;
+}
+
+.selected {
+    background-color: yellow;
+    border-radius: 50%;
+    color: white;
+} */
+
+.active-map .map {
+    margin: auto;
+}

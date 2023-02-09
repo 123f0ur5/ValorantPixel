@@ -1,37 +1,62 @@
-var agent = $(".characters-body");
-var map = $(".maps-body");
-var arrow = $(".arrow-characters");
+var characters = $(".characters-box");
+var maps = $(".maps-box");
+var sides = $(".sides-box");
+var arrow = $(".arrow");
 var count = 0;
+var map = "";
+var active_map = $(".active-map")
+var character = "";
 
+//Select character
 $(".character").on("click", function(){
     if ($(".character").hasClass("active")){
         $(".character").removeClass("active");
     }
+    character = $(this).children("img").attr("alt");
     $(this).addClass("active");
-
-    agent.detach();
-    $(".arrow").removeClass("inactive");
+    characters.fadeOut("slow");
+    $(".arrow").delay("1000").fadeIn("slow");
+    maps.delay("1000").fadeIn("slow");
+    
     count += 1;
 });
 
+//Select map
 $(".map").on("click", function(){
     if ($(".map").hasClass("active-map")){
         $(".map").removeClass("active-map");
     }
+    map = $(this).children("img").attr("alt");
+    console.log(map);
     $(this).addClass("active-map");
 
-    map.detach();
-    $(".arrow").removeClass("inactive");
+    maps.fadeOut("slow");
+    //sides.delay("1000").fadeIn("slow");
+    active_map.prepend('<img src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
+    active_map.delay("1000").fadeIn("1000")
     count += 1;
 });
 
+//Select side
+/*$(".side").on("click", function(){
+    if ($(".side").hasClass("selected")){
+        ($(".side").removeClass("selected"));
+    }
+    $(this).addClass("selected");
+});*/
+
+//Go back in selection menu
 $(".arrow").on("click", function(){
     if (count == 1){
-        $(".characters-box").append(agent);
-        $(".arrow").addClass("inactive");
+        arrow.fadeOut("slow");
+        maps.fadeOut("slow");
+        characters.delay("1000").fadeIn("slow");
         count -= 1;
     } else if (count == 2){
-        $(".maps-box").append(map);
+        //sides.fadeOut("slow");
+        active_map.fadeOut("slow")
+        active_map.empty()
+        maps.delay("1000").fadeIn("slow");
         count -= 1;
     }
 });

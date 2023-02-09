@@ -6,10 +6,7 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    resizable: false,
-    webPreferences: {
-        preload: path.join(__dirname, 'src/select.js')
-      }
+    resizable: false
   });
 
   win.loadFile('src/index.html');
