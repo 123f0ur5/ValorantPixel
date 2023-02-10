@@ -41,17 +41,6 @@ $(".active-map").on("click", function(e){
     console.log(e.pageX-12.5, e.pageY-12.5)
 });
 
-$("#test").on("mouseenter mouseleave", function(e){
-    if(e.type == "mouseenter"){
-        console.log("entrei")
-        $(this).animate({width: '+=5px', height: '+=5px'})
-        $(this).delay(300).animate({width: '-=5px', height: '-=5px'})
-    } else if (e.type == "mouseleave"){
-        console.log("sai")
-        $(this).stop("",true).fadeIn(0);
-    }
-});
-
 //Select side
 /*$(".side").on("click", function(){
     if ($(".side").hasClass("selected")){
