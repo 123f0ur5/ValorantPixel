@@ -1,18 +1,15 @@
 var characters = $(".characters-box");
 var maps = $(".maps-box");
-var sides = $(".sides-box");
 var arrow = $(".arrow");
 var count = 0;
 var map = "";
-var active_map = $(".active-map")
-var character = "";
+var currentMap = $(".current-map")
 
 //Select character
 $(".character").on("click", function(){
     if ($(".character").hasClass("active")){
         $(".character").removeClass("active");
     }
-    character = $(this).children("img").attr("alt");
     $(this).addClass("active");
     characters.fadeOut("slow");
     $(".arrow").delay("1000").fadeIn("slow");
@@ -23,7 +20,6 @@ $(".character").on("click", function(){
 
 //Select map
 $(".map").on("click", function(){
-    console.log("entrei")
     if ($(".map").hasClass("active-map")){
         $(".map").removeClass("active-map");
     }
@@ -32,12 +28,12 @@ $(".map").on("click", function(){
 
     maps.fadeOut("slow");
     //sides.delay("1000").fadeIn("slow");
-    active_map.append('<img id="current" src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
-    active_map.delay("1000").fadeIn("1000")
+    currentMap.append('<img id="current" src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
+    currentMap.delay("1000").fadeIn("1000")
     count += 1;
 });
 
-$(".active-map").on("click", function(e){
+currentMap.on("click", function(e){
     console.log(e.pageX-12.5, e.pageY-12.5)
 });
 
@@ -58,8 +54,8 @@ $(".arrow").on("click", function(){
         count -= 1;
     } else if (count == 2){
         //sides.fadeOut("slow");
-        active_map.fadeOut("slow")
-        active_map.empty()
+        currentMap.fadeOut("slow")
+        currentMap.empty()
         maps.delay("1000").fadeIn("slow");
         count -= 1;
     }
