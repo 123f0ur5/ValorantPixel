@@ -169,27 +169,7 @@ span{
     background-color: green;
 }
 
-.pixel-box:hover > .pixel-snake span, 
-.pixel-box:hover > .pixel-viper span {
+.pixel-box:hover > div span, 
+.pixel-box:hover > div span {
     transform: scale(1.3);
-}
-
-.first-location {
-    top: 400.5px;
-    left: 400.5px;
-}
-
-.first-target {
-    top: 156.5px;
-    left: 300.5px;
-}
-
-.second-location {
-    top: 200.5px;
-    left: 200.5px;
-}
-
-.second-target {
-    top: 356.5px;
-    left: 256.5px;
 }
