@@ -1,8 +1,10 @@
 var characters = $(".characters-box");
 var maps = $(".maps-box");
-var arrow = $(".arrow");
+var menu = $(".menu");
+var add = $(".add");
 var count = 0;
 var map = "";
+var agent = "";
 var currentMap = $(".current-map")
 
 //Select character
@@ -10,11 +12,11 @@ $(".character").on("click", function(){
     if ($(".character").hasClass("active")){
         $(".character").removeClass("active");
     }
+    agent = $(this).children("img").attr("alt");
     $(this).addClass("active");
     characters.fadeOut("slow");
-    $(".arrow").delay("1000").fadeIn("slow");
+    menu.delay("1000").fadeIn("slow");
     maps.delay("1000").fadeIn("slow");
-    
     count += 1;
 });
 
@@ -29,12 +31,12 @@ $(".map").on("click", function(){
     maps.fadeOut("slow");
     //sides.delay("1000").fadeIn("slow");
     currentMap.append('<img id="current" src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
-    currentMap.delay("1000").fadeIn("1000")
+    add.fadeIn("1000");
+    currentMap.delay("1000").fadeIn("1000");
+    setTimeout(() => {
+        insertPixels()
+    }, 1000);
     count += 1;
-});
-
-currentMap.on("click", function(e){
-    console.log(e.pageX-12.5, e.pageY-12.5)
 });
 
 //Select side
@@ -48,14 +50,16 @@ currentMap.on("click", function(e){
 //Go back in selection menu
 $(".arrow").on("click", function(){
     if (count == 1){
-        arrow.fadeOut("slow");
+        menu.fadeOut("slow");
         maps.fadeOut("slow");
         characters.delay("1000").fadeIn("slow");
         count -= 1;
     } else if (count == 2){
         //sides.fadeOut("slow");
-        currentMap.fadeOut("slow")
-        currentMap.empty()
+        currentMap.fadeOut("slow");
+        currentMap.empty();
+        pixelMap.empty();
+        add.fadeOut("1000");
         maps.delay("1000").fadeIn("slow");
         count -= 1;
     }

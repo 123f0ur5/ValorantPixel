@@ -2,16 +2,21 @@
     display: none;
 }
 
-.arrow {
-    text-align: center;
-    margin: auto;
-    padding-top: 5px;
-    border: 2px solid black;
-    border-radius: 50%;
-    width: 50px;
+.menu-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.arrow:hover {
+.arrow,
+.add {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.arrow:hover,
+.add:hover {
     background-color: aqua;
 }
 
@@ -167,6 +172,10 @@ span{
 
 .green {
     background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
 }
 
 .pixel-box:hover > div span, 
