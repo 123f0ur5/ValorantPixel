@@ -1,16 +1,31 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const url = require('url')
-const path = require('path')
+const path = require("path");
+var fs = require("fs");
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    resizable: false
+    resizable: false,
+    webPreferences: {
+      contextIsolation : true,
+      nodeIntegration : true,
+      preload: path.resolve('./src/preload.js'),
+    },
   });
 
   win.loadFile('src/index.html');
 };
+
+ipcMain.on("saveData", (e, agent, map, data) => {
+    fs.writeFile(path.resolve(`./pixel/${agent}-${map}-Snakebite.json`), JSON.stringify(data), (err) =>{
+    if (!err) {
+      console.log(data)
+    } else {
+      console.log(err)
+    }
+  })
+});
 
 app.whenReady().then(() => {
   createWindow();

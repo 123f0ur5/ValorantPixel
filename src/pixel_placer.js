@@ -2,7 +2,7 @@ var pixelMap = $(".pixel-map")
 var pixelCount;
 var pixelPath
 
-insertPixels = function(){
+function insertPixels(){
     pixelPath = `../pixel/${agent}-${map}-Snakebite.json`;
     pixelCount = 0;
     $.getJSON(pixelPath, function(data){

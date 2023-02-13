@@ -7,18 +7,18 @@ add.on("click", function(){
     if(add.hasClass("yellow")){
         add.removeClass("yellow");
         currentMap.off("click");
-        return;
+        return insertPixels();
     } else {
         add.addClass("yellow");
     }
     currentMap.on("click", function(e){
         if (clicks == 0){
-            target = [e.clientX-12.5, e.clientY-12.5];
+            target = [e.clientY-12.5, e.clientX-12.5];
             clicks++;
             pixelMap.append('<img id="add-target" class="pixel" src="../icons/Snake_Bite.png"></img>')
             $("#add-target").css({"top" : `${e.clientY-12.5}px`, "left" : `${e.clientX-12.5}px`, "position" : "absolute"})
         } else if( clicks == 1) {
-            position = [e.clientX-12.5, e.clientY-12.5];
+            position = [e.clientY-12.5, e.clientX-12.5];
             clicks = 0;
             add.removeClass("yellow");
             currentMap.off("click");
@@ -38,9 +38,11 @@ register = function(){
         var dict = {[newPixel] : [target, position]}
         $.getJSON(pixelPath, function(data){
             var newData = $.extend(dict, data)
-            console.log(newData)
+            window.indexBridge.saveData(agent, map, newData);
         });
     }
-
-    insertPixels();
+    setTimeout(() => {
+        pixelMap.empty()
+        insertPixels();
+    }, 10);
 }
