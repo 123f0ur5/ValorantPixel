@@ -1,11 +1,10 @@
-var characters = $(".characters-box");
-var maps = $(".maps-box");
-var menu = $(".menu");
-var add = $(".add");
-var count = 0;
+const characters = $(".characters-box");
+const maps = $(".maps-box");
+const menu = $(".menu");
+let count = 0;
+var currentMap = $(".current-map")
 var map = "";
 var agent = "";
-var currentMap = $(".current-map")
 
 //Select character
 $(".character").on("click", function(){

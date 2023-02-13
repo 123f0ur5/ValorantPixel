@@ -17,8 +17,9 @@ const createWindow = () => {
   win.loadFile('src/index.html');
 };
 
-ipcMain.on("saveData", (e, agent, map, data) => {
-    fs.writeFile(path.resolve(`./pixel/${agent}-${map}-Snakebite.json`), JSON.stringify(data), (err) =>{
+ipcMain.on("saveData", (e, agent, map, skill, data) => {
+    console.log(e, agent, map, skill, data)
+    fs.writeFile(path.resolve(`./pixel/${agent}-${map}-${skill}.json`), JSON.stringify(data), (err) =>{
     if (!err) {
       console.log(data)
     } else {
