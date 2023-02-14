@@ -16,10 +16,13 @@ function insert_Format(index, color, icon, skill){
 }
 
 function insertPixels(){
-    pixelPath = `../pixel/${agent}-${map}-${agent_dict[agent]["skill"]}.json`;
+    pixelPath = `../pixel/${agent}.json`;
+    console.log(pixelPath)
     pixelCount = 0;
     $.getJSON(pixelPath, function(data){
-        $.each(data, function(index, value){
+        let pixelData = JSON.parse(JSON.stringify(data))
+        pixelData = pixelData[agent_dict[agent]["skill"]]["map"][map]
+        $.each(pixelData, function(index, value){
             let html = insert_Format(index, agent_dict[agent]["color"], agent_dict[agent]["icon"], agent_dict[agent]["skill"]);
             pixelMap.append(html);
             $(`#${index}-target`).css({"top" : `${value[0][0]}px`, "left" : `${value[0][1]}px`});

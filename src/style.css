@@ -4,6 +4,9 @@
     --c-purple: purple;
     --c-blue: lightskyblue;
     --c-aqua: aqua;
+    --c-orange: orange;
+    --c-brown: #AB6F4E;
+    --c-red: firebrick;
 }
 
 .inactive {
@@ -198,3 +201,14 @@ span{
     background-color: var(--c-blue);
 }
 
+.orange {
+    background-color: var(--c-orange);
+}
+
+.red {
+    background-color: var(--c-red);
+}
+
+.brown {
+    background-color: var(--c-brown);
+}

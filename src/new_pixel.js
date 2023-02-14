@@ -5,8 +5,12 @@ let position;
 
 var agent_dict = {
     "Viper" : {"color" : "green", "icon" : "Viper_icon", "skill" : "Snakebite"},
-    "Sova" : {"color" : "blue", "icon" : "Sova_icon", "skill" : "Recon_Bolt"},
-    "KAY/O" : {"color" : "purple", "icon" : "KAYO_icon", "skill" : "ZERO-point"},
+    "Sova" : {"color" : "blue", "icon" : "Sova_icon", "skill" : "Reconbolt"},
+    "KAYO" : {"color" : "purple", "icon" : "KAYO_icon", "skill" : "ZEROpoint"},
+    "Brimstone" : {"color" : "orange", "icon" : "Brimstone_icon", "skill" : "Incendiary"},
+    "Killjoy" : {"color" : "yellow", "icon" : "Killjoy_icon", "skill" : "Nanoswarm"},
+    "Cypher" : {"color" : "brown", "icon" : "Cypher_icon", "skill" : "Cybercage"},
+    "Fade" : {"color" : "red", "icon" : "Fade_icon", "skill" : "Haunt"},
 }
 
 function pixel_Format(mode, color, icon){
@@ -15,9 +19,12 @@ function pixel_Format(mode, color, icon){
 
 add.on("click", function(){
     pixelMap.empty();
+    $(".arrow").addClass("inactive")
     if(add.hasClass("yellow")){
         add.removeClass("yellow");
         currentMap.off("click");
+        clicks = 0;
+        $(".arrow").removeClass("inactive")
         return insertPixels();
     } else {
         add.addClass("yellow");
@@ -47,12 +54,17 @@ function register(){
         let newPixel = "Pixel" + (pixelCount+1)
         let dict = {[newPixel] : [target, position]}
         $.getJSON(pixelPath, function(data){
+            let pixelData = JSON.parse(JSON.stringify(data))
+            data = pixelData[agent_dict[agent]["skill"]]["map"][map]
             let newData = $.extend(dict, data)
-            window.indexBridge.saveData(agent, map, agent_dict[agent]["skill"], newData);
+            pixelData[agent_dict[agent]["skill"]]["map"][map] = newData
+            console.log(pixelData)
+            window.indexBridge.saveData(agent, pixelData);
         });
     }
     setTimeout(() => {
+        $(".arrow").removeClass("inactive")
         pixelMap.empty()
         insertPixels();
-    }, 10);
+    }, 1000);
 }

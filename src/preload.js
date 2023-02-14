@@ -1,8 +1,8 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 let indexBridge = {
-    saveData : (agent, map, skill, data) => {
-        ipcRenderer.send("saveData", agent, map, skill, data)
+    saveData : (agent, data) => {
+        ipcRenderer.send("saveData", agent, data)
     } 
 }
 
