@@ -31,17 +31,17 @@ add.on("click", function(){
     }
     currentMap.on("click", function(e){
         if (clicks == 0){
-            target = [e.clientY-12.5, e.clientX-12.5];
+            target = [e.clientY-12.5, e.clientX-12.5]; //the marker size is 25px, 12.5 is to put the marker in the middle
             clicks++;
-            pixelMap.append(pixel_Format("target", agent_dict[agent]["color"], agent_dict[agent]["skill"]))
-            $("#add-target").css({"top" : `${e.clientY-12.5}px`, "left" : `${e.clientX-12.5}px`, "position" : "absolute"})
+            pixelMap.append(pixel_Format("target", agent_dict[agent]["color"], agent_dict[agent]["skill"])) //put the marker on the map
+            $("#add-target").css({"top" : `${target[0]}px`, "left" : `${target[1]}px`, "position" : "absolute"}) //define css of marker
         } else if( clicks == 1) {
             position = [e.clientY-12.5, e.clientX-12.5];
             clicks = 0;
             add.removeClass("yellow");
             currentMap.off("click");
             pixelMap.append(pixel_Format("location", agent_dict[agent]["color"], agent_dict[agent]["icon"]))
-            $("#add-location").css({"top" : `${e.clientY-12.5}px`, "left" : `${e.clientX-12.5}px`, "position" : "absolute"})
+            $("#add-location").css({"top" : `${position[0]}px`, "left" : `${position[0]}px`, "position" : "absolute"})
             setTimeout(() => {
                 return register()
             }, 1000);
@@ -52,13 +52,12 @@ add.on("click", function(){
 function register(){
     if(confirm("Do you want to save this lineup?")){
         let newPixel = "Pixel" + (pixelCount+1)
-        let dict = {[newPixel] : [target, position]}
+        let dict = {[newPixel] : [target, position]} //Data from the new pixel
         $.getJSON(pixelPath, function(data){
-            let pixelData = JSON.parse(JSON.stringify(data))
-            data = pixelData[agent_dict[agent]["skill"]]["map"][map]
-            let newData = $.extend(dict, data)
-            pixelData[agent_dict[agent]["skill"]]["map"][map] = newData
-            console.log(pixelData)
+            let pixelData = JSON.parse(JSON.stringify(data)) //get data from json file and transform in a dict
+            data = pixelData[agent_dict[agent]["skill"]]["map"][map] //get pixel data from selected map
+            let newData = $.extend(dict, data) //Put together new pixel with older pixels
+            pixelData[agent_dict[agent]["skill"]]["map"][map] = newData //Add this data into the dict, with the nem pixel
             window.indexBridge.saveData(agent, pixelData);
         });
     }
