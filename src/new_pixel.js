@@ -41,7 +41,7 @@ add.on("click", function(){
             add.removeClass("yellow");
             currentMap.off("click");
             pixelMap.append(pixel_Format("location", agent_dict[agent]["color"], agent_dict[agent]["icon"]))
-            $("#add-location").css({"top" : `${position[0]}px`, "left" : `${position[0]}px`, "position" : "absolute"})
+            $("#add-location").css({"top" : `${position[0]}px`, "left" : `${position[1]}px`, "position" : "absolute"})
             setTimeout(() => {
                 return register()
             }, 1000);
