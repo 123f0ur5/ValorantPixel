@@ -15,6 +15,11 @@ function insert_Format(index, color, icon, skill){
             </div>`
 }
 
+function insert_Video(src){
+    return `<img class="cross" src="../icons/cross.png"></img>\
+            <video class="current-video" width="350" height="250" src="${src}" controls></video>`
+}
+
 function insertPixels(){
     var video_dict = {};
     pixelPath = `../pixel/${agent}.json`;
@@ -31,15 +36,19 @@ function insertPixels(){
             pixelCount++;
         });
 
-        let pixelSelect = $(".pixel-box").children()
-        let videoPlayer = $(".video-player")
+        let pixelSelect = $(".pixel-box").children();
+        let videoPlayer = $(".video-player");
         pixelSelect.on("click", function(){
-            let pixelName = $(this).attr("name")
-            videoPlayer.append(`<video width="350" height="250" src="${video_dict[pixelName]}" controls></video>`)
-            videoPlayer.css({"display" : "flex"})
-            videoPlayer.fadeIn(1000)
-            console.log(pixelName)
-            console.log(video_dict[pixelName])
+            console.log(video_dict);
+            let pixelName = $(this).attr("name");
+            videoPlayer.append(insert_Video(video_dict[pixelName]));
+            videoPlayer.css({"display" : "flex"});
+            videoPlayer.fadeIn(1000);
+            let exitVideo = $(".cross");
+            exitVideo.on("click", function(){
+                videoPlayer.fadeOut(1000);
+                videoPlayer.empty();
+            });
         });
     });
 }
