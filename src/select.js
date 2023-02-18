@@ -1,4 +1,4 @@
-const characters = $(".characters-box");
+const agents = $(".agents-box");
 const maps = $(".maps-box");
 const menu = $(".menu");
 let count = 0;
@@ -7,13 +7,10 @@ var map = "";
 var agent = "";
 
 //Select character
-$(".character").on("click", function(){
-    if ($(".character").hasClass("active")){
-        $(".character").removeClass("active");
-    }
+$(".agent").on("click", function(){
     agent = $(this).children("img").attr("alt");
     $(this).addClass("active");
-    characters.fadeOut("slow");
+    agents.fadeOut("slow");
     menu.delay("1000").fadeIn("slow");
     maps.delay("1000").fadeIn("slow");
     count += 1;
@@ -21,12 +18,8 @@ $(".character").on("click", function(){
 
 //Select map
 $(".map").on("click", function(){
-    if ($(".map").hasClass("active-map")){
-        $(".map").removeClass("active-map");
-    }
     map = $(this).children("img").attr("alt");
     $(this).addClass("active-map");
-
     maps.fadeOut("slow");
     //sides.delay("1000").fadeIn("slow");
     currentMap.append('<img id="current" src="../maps/' + map + '_minimap.png" width="750" height="475"/>');
@@ -51,7 +44,7 @@ $(".arrow").on("click", function(){
     if (count == 1){
         menu.fadeOut("slow");
         maps.fadeOut("slow");
-        characters.delay("1000").fadeIn("slow");
+        agents.delay("1000").fadeIn("slow");
         count -= 1;
     } else if (count == 2){
         //sides.fadeOut("slow");

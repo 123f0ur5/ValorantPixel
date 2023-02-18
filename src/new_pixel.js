@@ -9,7 +9,7 @@ var agent_dict = {
     "KAYO" : {"color" : "purple", "icon" : "KAYO_icon", "skill" : "ZEROpoint"},
     "Brimstone" : {"color" : "orange", "icon" : "Brimstone_icon", "skill" : "Incendiary"},
     "Killjoy" : {"color" : "yellow", "icon" : "Killjoy_icon", "skill" : "Nanoswarm"},
-    "Cypher" : {"color" : "brown", "icon" : "Cypher_icon", "skill" : "Cybercage"},
+    "Cypher" : {"color" : "gray", "icon" : "Cypher_icon", "skill" : "Cybercage"},
     "Fade" : {"color" : "red", "icon" : "Fade_icon", "skill" : "Haunt"},
 }
 
@@ -43,6 +43,7 @@ add.on("click", function(){
             pixelMap.append(pixel_Format("location", agent_dict[agent]["color"], agent_dict[agent]["icon"]))
             $("#add-location").css({"top" : `${position[0]}px`, "left" : `${position[1]}px`, "position" : "absolute"})
             setTimeout(() => {
+
                 return register()
             }, 1000);
         }  
@@ -50,6 +51,7 @@ add.on("click", function(){
 });
 
 function register(){
+    var url = prompt("Insert the video URL to finish the pixel!")
     if(confirm("Do you want to save this lineup?")){
         let newPixel = "Pixel" + (pixelCount+1)
         let dict = {[newPixel] : [target, position]} //Data from the new pixel
@@ -61,6 +63,7 @@ function register(){
             window.indexBridge.saveData(agent, pixelData);
         });
     }
+
     setTimeout(() => {
         $(".arrow").removeClass("inactive")
         pixelMap.empty()
