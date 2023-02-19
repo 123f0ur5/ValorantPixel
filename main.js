@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require("path");
+var {dialog} = require("electron");
 var fs = require("fs");
 
 const createWindow = () => {
@@ -17,15 +18,26 @@ const createWindow = () => {
   win.loadFile('src/index.html');
 };
 
-ipcMain.on("saveData", (e, agent, data) => {
-    console.log(e, agent, data)
-    fs.writeFile(path.resolve(`./pixel/${agent}.json`), JSON.stringify(data), (err) =>{
-    if (!err) {
-      console.log(data)
-    } else {
-      console.log(err)
-    }
-  })
+ipcMain.on("saveData", (e, agent, skill, map, pixelData, newPixel, target, position) => {
+    dialog.showOpenDialog({
+      properties : ['openFile']
+    }).then(file => {
+      let newData;
+      let dict = {[newPixel] : [target, position, file.filePaths]}; //Data from the new pixel
+      data = pixelData[skill]["map"][map]; //get pixel data from selected map
+      let tempDict = Object.assign({}, dict, data); //Put together new pixel with older pixels
+      pixelData[skill]["map"][map] = tempDict; //Add this data into the dict, with the nem pixel
+      newData = pixelData;
+      fs.writeFile(path.resolve(`./pixel/${agent}.json`), JSON.stringify(newData), (err) =>{
+        if (err) {
+          console.log(err);
+        }
+      });  
+});
+});
+
+ipcMain.on("save-video", function(e){
+  
 });
 
 app.whenReady().then(() => {

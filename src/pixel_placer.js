@@ -1,4 +1,4 @@
-var pixelMap = $(".pixel-map")
+var pixelMap = $(".pixel-map");
 var pixelCount;
 var pixelPath;
 
@@ -39,7 +39,6 @@ function insertPixels(){
         let pixelSelect = $(".pixel-box").children();
         let videoPlayer = $(".video-player");
         pixelSelect.on("click", function(){
-            console.log(video_dict);
             let pixelName = $(this).attr("name");
             videoPlayer.append(insert_Video(video_dict[pixelName]));
             videoPlayer.css({"display" : "flex"});

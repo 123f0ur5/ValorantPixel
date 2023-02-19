@@ -2,7 +2,7 @@ const agents = $(".agents-box");
 const maps = $(".maps-box");
 const menu = $(".menu");
 let count = 0;
-var currentMap = $(".current-map")
+var currentMap = $(".current-map");
 var map = "";
 var agent = "";
 
@@ -26,7 +26,7 @@ $(".map").on("click", function(){
     add.fadeIn("1000");
     currentMap.delay("1000").fadeIn("1000");
     setTimeout(() => {
-        insertPixels()
+        insertPixels();
     }, 1000);
     count += 1;
 });
