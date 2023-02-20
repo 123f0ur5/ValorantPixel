@@ -1,1 +1,13 @@
-{"Reconbolt":{"map":{"Ascent":{"Pixel3":[[344.5,393.5],[301.5,593.5],["C:\\Users\\Lucas\\Desktop\\teste.mp4"]],"Pixel2":[[204.5,43.5],[324.5,195.5],["C:\\Users\\Lucas\\Desktop\\teste.mp4"]],"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Fracture":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Haven":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Icebox":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Lotus":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Pearl":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]},"Split":{"Pixel1":[[123,123],[123,456],"C:\\Users\\Lucas\\Desktop\\teste.mp4"]}}}}
+{
+    "Reconbolt" : {
+        "map" : {
+            "Ascent" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Fracture" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Haven" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Icebox" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Lotus" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Pearl" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Split" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]}
+        }
+    }
+}

@@ -1,13 +1,13 @@
 {
     "Incendiary" : {
         "map" : {
-            "Ascent" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Fracture" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Haven" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Icebox" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Lotus" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Pearl" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]},
-            "Split" : {"Pixel1" : [[123,123], [123,456], "C:\\Users\\Lucas\\Desktop\\teste.mp4"]}
+            "Ascent" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Fracture" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Haven" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Icebox" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Lotus" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Pearl" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]},
+            "Split" : {"Pixel1" : [[123,123], [123,456], "..\\video\\teste.mp4"]}
         }
     }
 }
